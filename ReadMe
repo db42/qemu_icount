@@ -1,0 +1,23 @@
+
+Count total no. of instructions, inc , call and ret instructions. (Only for i386)
+Qemu-Version: 0.12.5
+
+Files modified:
+1. qemu-0.12.5/target-i386/op_helper.c
+2. qemu-0.12.5/target-i386/helper.h
+3. qemu-0.12.5/target-i386/translate.c
+
+
+1. Replace attached files in qemu and make.
+2. Run qemu with -d option (output log to /tmp/qemu.log)
+3. Results in logfile(By default- /tmp/qemu.log)
+4. cat /tmp/qemu.log
+
+Basic Idea:
+The key is to declare these four functions to count different type of instruction:
+count_insn(void)
+inccount_insn(void)
+callcount_insn(void)
+retcount_insn(void)
+
+And, then call them in file "translate.c"
